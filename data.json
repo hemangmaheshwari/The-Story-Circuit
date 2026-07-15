@@ -1,0 +1,168 @@
+{
+  "agencyInfo": {
+    "name": "The Story Circuit",
+    "tagline": "We Craft Cinematic Stories That Convert",
+    "description": "We are a creative media agency specializing in premium video production, brand storytelling, vertical content creation, and creative direction. We help brands stand out through high-production-value visual content.",
+    "logo": "tHE STORY CIRCUIT LOGO.png",
+    "introReel": "logomotion-720p.mp4",
+    "instagram": "thestorycircut",
+    "email": "hello@thestorycircuit.com",
+    "phone": "+91 98765 43210",
+    "address": "Mumbai, India"
+  },
+  "portfolio": [
+    {
+      "id": "project-1",
+      "title": "The Cure - Brand Commercial",
+      "category": "video-production",
+      "mediaType": "video",
+      "src": "Client Work/Cure.mp4",
+      "thumbnail": "",
+      "description": "A high-concept brand advertisement focusing on cinematic lighting, visual metaphors, and a premium editorial style to promote wellness and modern aesthetics.",
+      "featured": true,
+      "client": "Cure Wellness",
+      "year": "2026",
+      "gridSize": "large"
+    },
+    {
+      "id": "project-2",
+      "title": "Ragi Foods - Social Promo",
+      "category": "video-production",
+      "mediaType": "video",
+      "src": "Client Work/Ragi.mp4",
+      "thumbnail": "",
+      "description": "Engaging, high-energy promotional clip showcasing organic Ragi ingredients, healthy recipes, and natural aesthetics designed to drive social media conversions.",
+      "featured": true,
+      "client": "Ragi Nutra",
+      "year": "2026",
+      "gridSize": "wide"
+    },
+    {
+      "id": "project-3",
+      "title": "Eye Focus - Cinematic Sequence",
+      "category": "creative-reels",
+      "mediaType": "video",
+      "src": "Client Work/Eye Video.mp4",
+      "thumbnail": "",
+      "description": "An experimental visual sequence exploring macro lenses, high frame-rate motion tracking, and striking color grading to create an immersive abstract atmosphere.",
+      "featured": false,
+      "client": "Self-Initiated",
+      "year": "2025",
+      "gridSize": "standard"
+    },
+    {
+      "id": "project-4",
+      "title": "Urban Street Fashion",
+      "category": "creative-reels",
+      "mediaType": "video",
+      "src": "Client Work/1782914831413454.mp4",
+      "thumbnail": "",
+      "description": "A vertical social media reel focusing on street fashion, fast cuts, and atmospheric beats to captivate mobile-first audiences.",
+      "featured": true,
+      "client": "Urban Threads",
+      "year": "2026",
+      "gridSize": "tall"
+    },
+    {
+      "id": "project-5",
+      "title": "Lifestyle & Motion",
+      "category": "creative-reels",
+      "mediaType": "video",
+      "src": "Client Work/1783358300035853.mp4",
+      "thumbnail": "",
+      "description": "A dynamic social media commercial reel combining slow-motion lifestyle shots with high-contrast grading for Instagram and TikTok campaigns.",
+      "featured": false,
+      "client": "Velo Lifestyle",
+      "year": "2026",
+      "gridSize": "tall"
+    },
+    {
+      "id": "project-6",
+      "title": "Modern Branding - Editorial Campaign",
+      "category": "design-photo",
+      "mediaType": "image",
+      "src": "Client Work/1.jpeg",
+      "thumbnail": "Client Work/1.jpeg",
+      "description": "Art direction and brand styling for a modern design studio, emphasizing clean grid structures, elegant typography, and stark contrasts.",
+      "featured": true,
+      "client": "Apex Creative",
+      "year": "2025",
+      "gridSize": "standard"
+    },
+    {
+      "id": "project-7",
+      "title": "Product Packaging - Visual Design",
+      "category": "design-photo",
+      "mediaType": "image",
+      "src": "Client Work/2.jpeg",
+      "thumbnail": "Client Work/2.jpeg",
+      "description": "Packaging concept and digital render for a luxury cosmetics brand, blending minimalist layouts with rich color accents.",
+      "featured": false,
+      "client": "Aura Cosmetics",
+      "year": "2026",
+      "gridSize": "standard"
+    },
+    {
+      "id": "project-8",
+      "title": "Studio Session - Portrait Photography",
+      "category": "design-photo",
+      "mediaType": "image",
+      "src": "Client Work/3.jpeg",
+      "thumbnail": "Client Work/3.jpeg",
+      "description": "A striking black-and-white studio portrait series exploring mood, shadow play, and minimalist composition.",
+      "featured": true,
+      "client": "Editorial Magazine",
+      "year": "2025",
+      "gridSize": "standard"
+    }
+  ],
+  "packages": [
+    {
+      "id": "pkg-starter",
+      "name": "Starter Socials",
+      "price": "$599",
+      "period": "month",
+      "description": "Perfect for small businesses looking to establish a premium visual presence online.",
+      "features": [
+        "4 x High-quality reels (vertical format)",
+        "Basic graphic templates",
+        "Color grading & sound design",
+        "1 x Revision round per project",
+        "Delivery within 10 business days"
+      ],
+      "popular": false
+    },
+    {
+      "id": "pkg-growth",
+      "name": "Growth Campaign",
+      "price": "$1,299",
+      "period": "month",
+      "description": "Our most popular package. Designed for growing brands who need consistent, high-impact media campaigns.",
+      "features": [
+        "8 x Premium vertical reels / ads",
+        "1 x Brand storytelling promo (horizontal/vertical)",
+        "Professional art direction & styling",
+        "Custom music licensing & SFX",
+        "Unlimited revisions (within reason)",
+        "Priority 7-day turnaround"
+      ],
+      "popular": true
+    },
+    {
+      "id": "pkg-production",
+      "name": "Full-Scale Production",
+      "price": "$2,999",
+      "period": "month",
+      "description": "For established brands requiring custom commercials, product launches, and editorial photography.",
+      "features": [
+        "1 x Cinematic Brand Film / Commercial",
+        "12 x Social media video assets",
+        "Full studio photo shoot (up to 20 final edits)",
+        "Scriptwriting, storyboarding, and talent sourcing",
+        "24/7 dedicated creative support",
+        "Express delivery option"
+      ],
+      "popular": false
+    }
+  ]
+}
