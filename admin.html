@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Admin Dashboard | The Story Circuit</title>
-  <meta name="description" content="Manage your creative agency portfolio, packages, pricing, and contact details from a unified client-side dashboard. Export updated configurations.">
+
+  <meta
+          name="description"
+          content="Manage your creative agency portfolio, packages, pricing, and contact details from a unified client-side dashboard. Export updated configurations."
+  >
+
   <link rel="stylesheet" href="css/style.css">
+
   <style>
     /* Inline additions specific to admin dashboard layouts */
+
     .admin-form-section {
       background-color: rgba(255, 255, 255, 0.01);
       border: 1px solid var(--border-color);
@@ -15,6 +24,7 @@
       padding: 2rem;
       margin-bottom: 2.5rem;
     }
+
     .admin-form-section-title {
       font-size: 1.25rem;
       font-weight: 600;
@@ -24,310 +34,1011 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .btn-small {
       padding: 0.5rem 1rem;
       font-size: 0.85rem;
       border-radius: var(--radius-sm);
     }
+
     .features-textarea-note {
       font-size: 0.8rem;
       color: var(--text-dim);
       margin-top: 0.5rem;
     }
+
     @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-8px); }
-      40%, 80% { transform: translateX(8px); }
+      0%, 100% {
+        transform: translateX(0);
+      }
+
+      20%, 60% {
+        transform: translateX(-8px);
+      }
+
+      40%, 80% {
+        transform: translateX(8px);
+      }
     }
   </style>
 </head>
+
 <body class="admin-page">
 
-  <!-- ==========================================
-       HEADER & NAVIGATION
-       ========================================== -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo-link logo-container" id="header-logo">
-        <span class="logo-text">The Story Circuit</span>
+<!-- ==========================================
+     HEADER & NAVIGATION
+     ========================================== -->
+<header class="header">
+
+  <div class="container nav-container">
+
+    <a
+            href="index.html"
+            class="logo-link logo-container"
+            id="header-logo"
+    >
+        <span class="logo-text">
+          The Story Circuit
+        </span>
+    </a>
+
+
+    <nav class="nav-links" id="nav-links">
+
+      <a
+              href="index.html"
+              class="nav-link"
+      >
+        Home
       </a>
 
-      <nav class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="portfolio.html" class="nav-link">Portfolio</a>
-        <a href="pricing.html" class="nav-link">Packages</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="admin.html" class="nav-link active">Dashboard</a>
-      </nav>
+      <a
+              href="portfolio.html"
+              class="nav-link"
+      >
+        Portfolio
+      </a>
 
-      <a href="pricing.html" class="nav-cta">View Pricing</a>
+      <a
+              href="pricing.html"
+              class="nav-link"
+      >
+        Packages
+      </a>
 
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <a
+              href="contact.html"
+              class="nav-link"
+      >
+        Contact
+      </a>
+
+      <a
+              href="admin.html"
+              class="nav-link active"
+      >
+        Dashboard
+      </a>
+
+    </nav>
+
+
+    <a
+            href="pricing.html"
+            class="nav-cta"
+    >
+      View Pricing
+    </a>
+
+
+    <div
+            class="menu-toggle"
+            id="menu-toggle"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </header>
 
-  <!-- ==========================================
-       ADMIN LOGIN PANEL
-       ========================================== -->
-  <div class="container" id="admin-login-container" style="max-width: 450px; margin: 10vh auto; padding: 3.5rem; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-lg);">
-    <div style="margin-bottom: 2.5rem;">
-      <div style="color: var(--accent); margin-bottom: 1.5rem; display: flex; justify-content: center;">
-        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-      </div>
-      <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">Control Center</h2>
-      <p style="color: var(--text-muted); font-size: 0.95rem; font-weight: 300;">Enter password to unlock editing access.</p>
-    </div>
-    
-    <form id="admin-login-form">
-      <div class="form-group" style="text-align: left; margin-bottom: 2rem;">
-        <label class="form-label" for="admin-password">Dashboard Password</label>
-        <input type="password" id="admin-password" class="form-control" placeholder="••••••••" required>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%;">Unlock Dashboard</button>
-      <p id="admin-login-error" style="color: #eb5757; font-size: 0.95rem; margin-top: 1.5rem; display: none; font-weight: 500;"></p>
-    </form>
   </div>
 
-  <!-- ==========================================
-       ADMIN CONTROL CENTER
-       ========================================== -->
-  <main class="container" id="admin-dashboard-container" style="display: none;">
-    <div class="admin-header-area reveal">
-      <div>
-        <span class="section-tag">Content Manager</span>
-        <h1 class="section-title" style="margin-bottom: 0.5rem;">Agency Dashboard</h1>
-        <p style="color: var(--text-muted); font-weight: 300;">Manage your portfolio, update pricing lists, and download configurations to keep your live Vercel site updated.</p>
-      </div>
-      
-      <!-- Top Action Bar -->
-      <div class="admin-action-bar">
-        <button id="admin-reset-btn" class="btn btn-secondary btn-small">Reset Defaults</button>
-        <button id="admin-export-btn" class="btn btn-primary btn-small">Export data.json</button>
-      </div>
-    </div>
+</header>
 
-    <!-- Dual Column Dashboard Layout -->
-    <div class="admin-container">
-      
-      <!-- Sidebar Navigation Tabs -->
-      <aside class="admin-sidebar reveal">
-        <button class="admin-tab-btn active" data-pane="pane-agency">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          Agency Details
-        </button>
-        
-        <button class="admin-tab-btn" data-pane="pane-portfolio">
-          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-          Portfolio Work
-        </button>
-        
-        <button class="admin-tab-btn" data-pane="pane-pricing">
-          <svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 8.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75z"/></svg>
-          Pricing Plans
-        </button>
-      </aside>
 
-      <!-- Content Editor Pane Area -->
-      <section class="admin-content" style="padding: 0;">
-        
-        <!-- Tab Pane 1: Agency Profile -->
-        <div class="admin-content-pane active" id="pane-agency">
-          <h2 class="admin-pane-title">Agency Settings</h2>
-          <form id="admin-agency-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="agency-name-in">Agency Name</label>
-                <input type="text" id="agency-name-in" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="agency-tagline-in">Hero Tagline</label>
-                <input type="text" id="agency-tagline-in" class="form-control" required>
-              </div>
-            </div>
+<!-- ==========================================
+     ADMIN LOGIN PANEL
+     ========================================== -->
+<div
+        class="container"
+        id="admin-login-container"
+        style="max-width: 450px; margin: 10vh auto; padding: 3.5rem; background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-lg);"
+>
 
-            <div class="form-group">
-              <label class="form-label" for="agency-desc-in">Hero Description</label>
-              <textarea id="agency-desc-in" class="form-control" required></textarea>
-            </div>
+  <div style="margin-bottom: 2.5rem;">
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="agency-logo-in">Logo File Name</label>
-                <input type="text" id="agency-logo-in" class="form-control" placeholder="tHE STORY CIRCUIT LOGO.png" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="agency-reel-in">Intro Reel File Name</label>
-                <input type="text" id="agency-reel-in" class="form-control" placeholder="logomotion-720p.mp4" required>
-              </div>
-            </div>
+    <div
+            style="color: var(--accent); margin-bottom: 1.5rem; display: flex; justify-content: center;"
+    >
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="agency-ig-in">Instagram Handle</label>
-                <input type="text" id="agency-ig-in" class="form-control" placeholder="thestorycircuit" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="agency-email-in">Contact Email</label>
-                <input type="email" id="agency-email-in" class="form-control" required>
-              </div>
-            </div>
+      <svg
+              width="50"
+              height="50"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+      >
+        <rect
+                x="3"
+                y="11"
+                width="18"
+                height="11"
+                rx="2"
+                ry="2"
+        ></rect>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="agency-phone-in">Contact Phone</label>
-                <input type="text" id="agency-phone-in" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="agency-addr-in">HQ Address</label>
-                <input type="text" id="agency-addr-in" class="form-control" required>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Save Profile Settings</button>
-          </form>
-        </div>
-
-        <!-- Tab Pane 2: Portfolio items list -->
-        <div class="admin-content-pane" id="pane-portfolio">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
-            <h2 class="admin-pane-title" style="margin-bottom: 0; border: none; padding: 0;">Portfolio Showcase</h2>
-            <button id="admin-add-project-btn" class="btn btn-primary btn-small">Add New Project</button>
-          </div>
-
-          <!-- Dynamic Projects List Container -->
-          <div class="admin-items-list" id="admin-portfolio-list">
-            <p style="color: var(--text-muted);">Loading projects...</p>
-          </div>
-        </div>
-
-        <!-- Tab Pane 3: Pricing Packages list -->
-        <div class="admin-content-pane" id="pane-pricing">
-          <h2 class="admin-pane-title">Pricing Packages</h2>
-          <form id="admin-pricing-form">
-            <!-- Rendered dynamically via javascript -->
-            <div id="admin-packages-container">
-              <p style="color: var(--text-muted);">Loading pricing structures...</p>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Save Pricing Plans</button>
-          </form>
-        </div>
-
-        <!-- Vercel Deployment Instructions -->
-        <div class="admin-instructions reveal">
-          <h3 style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2L2 22h20L12 2zm1 18h-2v-2h2v2zm0-4h-2V9h2v7z"/></svg>
-            How to Update Your Live Vercel Website
-          </h3>
-          <p>The changes you save on this page are stored instantly in your local browser cache for previewing. To make these changes permanent and visible to the public on Vercel:</p>
-          <ol>
-            <li>Click the <strong>"Export data.json"</strong> button at the top right.</li>
-            <li>A file named <code>data.json</code> will download.</li>
-            <li>Go to your website repository (e.g. on GitHub).</li>
-            <li>Upload and overwrite the existing <strong><code>data.json</code></strong> file in the root folder.</li>
-            <li>Once pushed, Vercel will automatically detect the file change and rebuild your live site within seconds!</li>
-          </ol>
-        </div>
-      </section>
+        <path
+                d="M7 11V7a5 5 0 0 1 10 0v4"
+        ></path>
+      </svg>
 
     </div>
-  </main>
 
-  <!-- ==========================================
-       ADD / EDIT PORTFOLIO ITEM MODAL
-       ========================================== -->
-  <div class="modal" id="admin-project-modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-container" style="max-width: 600px;">
-      <button class="modal-close-btn" id="admin-modal-close" aria-label="Close modal">
-        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+
+    <h2
+            style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;"
+    >
+      Control Center
+    </h2>
+
+
+    <p
+            style="color: var(--text-muted); font-size: 0.95rem; font-weight: 300;"
+    >
+      Enter password to unlock editing access.
+    </p>
+
+  </div>
+
+
+  <form id="admin-login-form">
+
+    <div
+            class="form-group"
+            style="text-align: left; margin-bottom: 2rem;"
+    >
+
+      <label
+              class="form-label"
+              for="admin-password"
+      >
+        Dashboard Password
+      </label>
+
+      <input
+              type="password"
+              id="admin-password"
+              class="form-control"
+              placeholder="••••••••"
+              required
+      >
+
+    </div>
+
+
+    <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%;"
+    >
+      Unlock Dashboard
+    </button>
+
+
+    <p
+            id="admin-login-error"
+            style="color: #eb5757; font-size: 0.95rem; margin-top: 1.5rem; display: none; font-weight: 500;"
+    ></p>
+
+  </form>
+
+</div>
+
+
+<!-- ==========================================
+     ADMIN CONTROL CENTER
+     ========================================== -->
+<main
+        class="container"
+        id="admin-dashboard-container"
+        style="display: none;"
+>
+
+  <div class="admin-header-area reveal">
+
+    <div>
+
+        <span class="section-tag">
+          Content Manager
+        </span>
+
+      <h1
+              class="section-title"
+              style="margin-bottom: 0.5rem;"
+      >
+        Agency Dashboard
+      </h1>
+
+      <p
+              style="color: var(--text-muted); font-weight: 300;"
+      >
+        Manage your portfolio, update pricing lists, and download configurations to keep your live Vercel site updated.
+      </p>
+
+    </div>
+
+
+    <!-- Top Action Bar -->
+    <div class="admin-action-bar">
+
+      <button
+              id="admin-reset-btn"
+              class="btn btn-secondary btn-small"
+      >
+        Reset Defaults
       </button>
 
-      <div class="modal-content" style="padding: 2.5rem;">
-        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;" id="modal-project-title-label">Add Portfolio Item</h3>
-        
-        <form id="admin-project-form">
-          <input type="hidden" id="proj-id">
-          
-          <div class="form-group">
-            <label class="form-label" for="proj-title">Project Title</label>
-            <input type="text" id="proj-title" class="form-control" placeholder="Brand Commercial Reel" required>
-          </div>
+      <button
+              id="admin-export-btn"
+              class="btn btn-primary btn-small"
+      >
+        Export data.json
+      </button>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="proj-category">Category</label>
-              <select id="proj-category" class="form-control" style="background-color: var(--bg-dark);">
-                <option value="video-production">Video Production</option>
-                <option value="creative-reels">Creative Reels</option>
-                <option value="design-photo">Design & Photography</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="proj-mediatype">Media Type</label>
-              <select id="proj-mediatype" class="form-control" style="background-color: var(--bg-dark);">
-                <option value="video">Video Clip (.mp4)</option>
-                <option value="image">Still Image (.jpeg/.png)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="proj-src">Media File Path</label>
-            <input type="text" id="proj-src" class="form-control" placeholder="Client Work/Cure.mp4" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="proj-gridsize">Bento Grid Layout Size</label>
-            <select id="proj-gridsize" class="form-control" style="background-color: var(--bg-dark);">
-              <option value="standard">Standard (1x1 tile)</option>
-              <option value="wide">Wide (2x1 landscape tile)</option>
-              <option value="tall">Tall (1x2 vertical video tile)</option>
-              <option value="large">Large (2x2 spotlight tile)</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="proj-client">Client Name</label>
-              <input type="text" id="proj-client" class="form-control" placeholder="Nike / Self-Initiated" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="proj-year">Production Year</label>
-              <input type="text" id="proj-year" class="form-control" placeholder="2026" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="proj-desc">Detailed Description</label>
-            <textarea id="proj-desc" class="form-control" style="min-height: 100px;" placeholder="Describe the creative brief, direction, and aesthetics of this media piece..." required></textarea>
-          </div>
-
-          <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
-            <input type="checkbox" id="proj-featured" style="width: 18px; height: 18px; cursor: pointer;">
-            <label for="proj-featured" style="cursor: pointer; font-size: 0.95rem;">Feature this work on the home page</label>
-          </div>
-
-          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
-            <button type="button" class="btn btn-secondary btn-small" id="admin-modal-cancel">Cancel</button>
-            <button type="submit" class="btn btn-primary btn-small">Save Project</button>
-          </div>
-        </form>
-      </div>
     </div>
+
   </div>
 
-  <footer class="footer">
-    <div class="container" style="text-align: center; color: var(--text-dim); font-size: 0.9rem; padding: 2rem 0 1rem 0;">
-      <div>&copy; 2026 <span class="agency-name">The Story Circuit</span> Owner Dashboard. All rights reserved.</div>
-    </div>
-  </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/admin.js"></script>
+  <!-- Dual Column Dashboard Layout -->
+  <div class="admin-container">
+
+    <!-- Sidebar Navigation Tabs -->
+    <aside class="admin-sidebar reveal">
+
+      <button
+              class="admin-tab-btn active"
+              data-pane="pane-agency"
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+
+        Agency Details
+      </button>
+
+
+      <button
+              class="admin-tab-btn"
+              data-pane="pane-portfolio"
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/>
+        </svg>
+
+        Portfolio Work
+      </button>
+
+
+      <button
+              class="admin-tab-btn"
+              data-pane="pane-pricing"
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 8.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75z"/>
+        </svg>
+
+        Pricing Plans
+      </button>
+
+    </aside>
+
+
+    <!-- Content Editor Pane Area -->
+    <section
+            class="admin-content"
+            style="padding: 0;"
+    >
+
+      <!-- Tab Pane 1: Agency Profile -->
+      <div
+              class="admin-content-pane active"
+              id="pane-agency"
+      >
+
+        <h2 class="admin-pane-title">
+          Agency Settings
+        </h2>
+
+
+        <form id="admin-agency-form">
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-name-in"
+              >
+                Agency Name
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-name-in"
+                      class="form-control"
+                      required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-tagline-in"
+              >
+                Hero Tagline
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-tagline-in"
+                      class="form-control"
+                      required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label
+                    class="form-label"
+                    for="agency-desc-in"
+            >
+              Hero Description
+            </label>
+
+            <textarea
+                    id="agency-desc-in"
+                    class="form-control"
+                    required
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-logo-in"
+              >
+                Logo File Name
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-logo-in"
+                      class="form-control"
+                      placeholder="tHE STORY CIRCUIT LOGO.png"
+                      required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-reel-in"
+              >
+                Intro Reel File Name
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-reel-in"
+                      class="form-control"
+                      placeholder="logomotion-720p.mp4"
+                      required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-ig-in"
+              >
+                Instagram Handle
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-ig-in"
+                      class="form-control"
+                      placeholder="thestorycircuit"
+                      required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-email-in"
+              >
+                Contact Email
+              </label>
+
+              <input
+                      type="email"
+                      id="agency-email-in"
+                      class="form-control"
+                      required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-phone-in"
+              >
+                Contact Phone
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-phone-in"
+                      class="form-control"
+                      required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label
+                      class="form-label"
+                      for="agency-addr-in"
+              >
+                HQ Address
+              </label>
+
+              <input
+                      type="text"
+                      id="agency-addr-in"
+                      class="form-control"
+                      required
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+                  type="submit"
+                  class="btn btn-primary"
+          >
+            Save Profile Settings
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- Tab Pane 2: Portfolio items list -->
+      <div
+              class="admin-content-pane"
+              id="pane-portfolio"
+      >
+
+        <div
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;"
+        >
+
+          <h2
+                  class="admin-pane-title"
+                  style="margin-bottom: 0; border: none; padding: 0;"
+          >
+            Portfolio Showcase
+          </h2>
+
+          <button
+                  id="admin-add-project-btn"
+                  class="btn btn-primary btn-small"
+          >
+            Add New Project
+          </button>
+
+        </div>
+
+
+        <!-- Dynamic Projects List Container -->
+        <div
+                class="admin-items-list"
+                id="admin-portfolio-list"
+        >
+          <p style="color: var(--text-muted);">
+            Loading projects...
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Tab Pane 3: Pricing Packages list -->
+      <div
+              class="admin-content-pane"
+              id="pane-pricing"
+      >
+
+        <h2 class="admin-pane-title">
+          Pricing Packages
+        </h2>
+
+
+        <form id="admin-pricing-form">
+
+          <!-- Rendered dynamically via javascript -->
+          <div id="admin-packages-container">
+
+            <p style="color: var(--text-muted);">
+              Loading pricing structures...
+            </p>
+
+          </div>
+
+
+          <button
+                  type="submit"
+                  class="btn btn-primary"
+          >
+            Save Pricing Plans
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- Vercel Deployment Instructions -->
+      <div class="admin-instructions reveal">
+
+        <h3
+                style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;"
+        >
+
+          <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="var(--accent)"
+          >
+            <path d="M12 2L2 22h20L12 2zm1 18h-2v-2h2v2zm0-4h-2V9h2v7z"/>
+          </svg>
+
+          How to Update Your Live Vercel Website
+
+        </h3>
+
+
+        <p>
+          The changes you save on this page are stored instantly in your local browser cache for previewing. To make these changes permanent and visible to the public on Vercel:
+        </p>
+
+
+        <ol>
+
+          <li>
+            Click the <strong>"Export data.json"</strong> button at the top right.
+          </li>
+
+          <li>
+            A file named <code>data.json</code> will download.
+          </li>
+
+          <li>
+            Go to your website repository (e.g. on GitHub).
+          </li>
+
+          <li>
+            Upload and overwrite the existing <strong><code>data.json</code></strong> file in the root folder.
+          </li>
+
+          <li>
+            Once pushed, Vercel will automatically detect the file change and rebuild your live site within seconds!
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- ==========================================
+     ADD / EDIT PORTFOLIO ITEM MODAL
+     ========================================== -->
+<div
+        class="modal"
+        id="admin-project-modal"
+>
+
+  <div class="modal-overlay"></div>
+
+
+  <div
+          class="modal-container"
+          style="max-width: 600px;"
+  >
+
+    <button
+            class="modal-close-btn"
+            id="admin-modal-close"
+            aria-label="Close modal"
+    >
+
+      <svg viewBox="0 0 24 24">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+
+    </button>
+
+
+    <div
+            class="modal-content"
+            style="padding: 2.5rem;"
+    >
+
+      <h3
+              style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem;"
+              id="modal-project-title-label"
+      >
+        Add Portfolio Item
+      </h3>
+
+
+      <form id="admin-project-form">
+
+        <input
+                type="hidden"
+                id="proj-id"
+        >
+
+
+        <div class="form-group">
+
+          <label
+                  class="form-label"
+                  for="proj-title"
+          >
+            Project Title
+          </label>
+
+          <input
+                  type="text"
+                  id="proj-title"
+                  class="form-control"
+                  placeholder="Brand Commercial Reel"
+                  required
+          >
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label
+                    class="form-label"
+                    for="proj-category"
+            >
+              Category
+            </label>
+
+            <select
+                    id="proj-category"
+                    class="form-control"
+                    style="background-color: var(--bg-dark);"
+            >
+              <option value="video-production">
+                Video Production
+              </option>
+
+              <option value="creative-reels">
+                Creative Reels
+              </option>
+
+              <option value="design-photo">
+                Design & Photography
+              </option>
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label
+                    class="form-label"
+                    for="proj-mediatype"
+            >
+              Media Type
+            </label>
+
+            <select
+                    id="proj-mediatype"
+                    class="form-control"
+                    style="background-color: var(--bg-dark);"
+            >
+              <option value="video">
+                Video Clip (.mp4)
+              </option>
+
+              <option value="image">
+                Still Image (.jpeg/.png)
+              </option>
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label
+                  class="form-label"
+                  for="proj-src"
+          >
+            Media File Path
+          </label>
+
+          <input
+                  type="text"
+                  id="proj-src"
+                  class="form-control"
+                  placeholder="Client Work/Cure.mp4"
+                  required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label
+                  class="form-label"
+                  for="proj-gridsize"
+          >
+            Bento Grid Layout Size
+          </label>
+
+          <select
+                  id="proj-gridsize"
+                  class="form-control"
+                  style="background-color: var(--bg-dark);"
+          >
+
+            <option value="standard">
+              Standard (1x1 tile)
+            </option>
+
+            <option value="wide">
+              Wide (2x1 landscape tile)
+            </option>
+
+            <option value="tall">
+              Tall (1x2 vertical video tile)
+            </option>
+
+            <option value="large">
+              Large (2x2 spotlight tile)
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label
+                    class="form-label"
+                    for="proj-client"
+            >
+              Client Name
+            </label>
+
+            <input
+                    type="text"
+                    id="proj-client"
+                    class="form-control"
+                    placeholder="Nike / Self-Initiated"
+                    required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label
+                    class="form-label"
+                    for="proj-year"
+            >
+              Production Year
+            </label>
+
+            <input
+                    type="text"
+                    id="proj-year"
+                    class="form-control"
+                    placeholder="2026"
+                    required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label
+                  class="form-label"
+                  for="proj-desc"
+          >
+            Detailed Description
+          </label>
+
+          <textarea
+                  id="proj-desc"
+                  class="form-control"
+                  style="min-height: 100px;"
+                  placeholder="Describe the creative brief, direction, and aesthetics of this media piece..."
+                  required
+          ></textarea>
+
+        </div>
+
+
+        <div
+                class="form-group"
+                style="display: flex; align-items: center; gap: 0.5rem;"
+        >
+
+          <input
+                  type="checkbox"
+                  id="proj-featured"
+                  style="width: 18px; height: 18px; cursor: pointer;"
+          >
+
+          <label
+                  for="proj-featured"
+                  style="cursor: pointer; font-size: 0.95rem;"
+          >
+            Feature this work on the home page
+          </label>
+
+        </div>
+
+
+        <div
+                style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;"
+        >
+
+          <button
+                  type="button"
+                  class="btn btn-secondary btn-small"
+                  id="admin-modal-cancel"
+          >
+            Cancel
+          </button>
+
+          <button
+                  type="submit"
+                  class="btn btn-primary btn-small"
+          >
+            Save Project
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="footer">
+
+  <div
+          class="container"
+          style="text-align: center; color: var(--text-dim); font-size: 0.9rem; padding: 2rem 0 1rem 0;"
+  >
+
+    <div>
+      &copy; 2026
+
+      <span class="agency-name">
+          The Story Circuit
+        </span>
+
+      Owner Dashboard. All rights reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
+<script src="js/data.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/portfolio.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+
 </body>
+
 </html>

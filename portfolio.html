@@ -1,164 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Portfolio | The Story Circuit</title>
-  <meta name="description" content="Browse our creative media showcase featuring commercial video ads, cinematic vertical reels, branding photography, and visual graphic design campaigns.">
+
+  <meta
+          name="description"
+          content="Browse our creative media showcase featuring commercial video ads, cinematic vertical reels, branding photography, and visual graphic design campaigns."
+  >
+
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <!-- ==========================================
-       HEADER & NAVIGATION
-       ========================================== -->
-  <header class="header">
-    <div class="container nav-container">
-      <a href="index.html" class="logo-link logo-container" id="header-logo">
-        <span class="logo-text">The Story Circuit</span>
+<!-- ==========================================
+     HEADER & NAVIGATION
+     ========================================== -->
+<header class="header">
+  <div class="container nav-container">
+
+    <a
+            href="index.html"
+            class="logo-link logo-container"
+            id="header-logo"
+    >
+        <span class="logo-text">
+          The Story Circuit
+        </span>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+
+      <a href="index.html" class="nav-link">
+        Home
       </a>
 
-      <nav class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="portfolio.html" class="nav-link active">Portfolio</a>
-        <a href="pricing.html" class="nav-link">Packages</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
+      <a href="portfolio.html" class="nav-link active">
+        Portfolio
+      </a>
 
-      <a href="pricing.html" class="nav-cta">View Pricing</a>
+      <a href="pricing.html" class="nav-link">
+        Packages
+      </a>
 
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <a href="contact.html" class="nav-link">
+        Contact
+      </a>
+
+    </nav>
+
+    <a href="pricing.html" class="nav-cta">
+      View Pricing
+    </a>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </header>
 
-  <!-- ==========================================
-       PORTFOLIO HERO HEADER
-       ========================================== -->
-  <section style="padding-top: 180px; padding-bottom: 2rem; background-color: var(--bg-dark);">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-tag">Showcase</span>
-        <h1 class="section-title">Selected Works</h1>
-        <p class="section-desc">A curated collection of commercial video ads, high-impact social media reels, and visual branding assets crafted for our clients.</p>
-      </div>
+  </div>
+</header>
+
+
+<!-- ==========================================
+     PORTFOLIO HERO HEADER
+     ========================================== -->
+<section
+        style="padding-top: 180px; padding-bottom: 2rem; background-color: var(--bg-dark);"
+>
+  <div class="container">
+
+    <div class="reveal">
+
+        <span class="section-tag">
+          Showcase
+        </span>
+
+      <h1 class="section-title">
+        Selected Works
+      </h1>
+
+      <p class="section-desc">
+        A curated collection of commercial video ads, high-impact social media reels, and visual branding assets crafted for our clients.
+      </p>
+
     </div>
-  </section>
 
-  <!-- ==========================================
-       PORTFOLIO FILTERS & GRID
-       ========================================== -->
-  <section style="padding-top: 2rem; background-color: var(--bg-dark); min-height: 60vh;">
-    <div class="container">
-      <!-- Filter navigation buttons -->
-      <div class="portfolio-filters reveal">
-        <button class="filter-btn active" data-filter="all">All Work</button>
-        <button class="filter-btn" data-filter="video-production">Video Production</button>
-        <button class="filter-btn" data-filter="creative-reels">Creative Reels</button>
-        <button class="filter-btn" data-filter="design-photo">Design & Photography</button>
-      </div>
+  </div>
+</section>
 
-      <!-- Main Showcase Grid -->
-      <div class="portfolio-grid" id="portfolio-grid">
-        <!-- Rendered dynamically by js/main.js -->
-        <p style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 4rem 0;">Loading projects...</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ==========================================
-       MODAL (PROJECT DETAILS POPUP)
-       ========================================== -->
-  <div class="modal" id="project-modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-container">
-      <button class="modal-close-btn" aria-label="Close modal">
-        <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+<!-- ==========================================
+     PORTFOLIO FILTERS & GRID
+     ========================================== -->
+<section
+        style="padding-top: 2rem; background-color: var(--bg-dark); min-height: 60vh;"
+>
+  <div class="container">
+
+    <!-- Filter navigation buttons -->
+    <div class="portfolio-filters reveal">
+
+      <button
+              class="filter-btn active"
+              data-filter="all"
+      >
+        All Work
       </button>
-      
-      <div class="modal-media-wrapper">
-        <!-- Rendered dynamically -->
-      </div>
-      
-      <div class="modal-content">
-        <div class="modal-header-row">
-          <div class="modal-title-area">
-            <div class="modal-category">Video Production</div>
-            <h2 class="modal-title">Project Title</h2>
-          </div>
-          <div class="modal-meta-grid">
-            <div>
-              <div class="modal-meta-label">Client</div>
-              <div class="modal-meta-val modal-client-val">Client Name</div>
-            </div>
-            <div>
-              <div class="modal-meta-label">Year</div>
-              <div class="modal-meta-val modal-year-val">2026</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="modal-body">
-          <p class="modal-body-desc">Detailed project description goes here...</p>
-        </div>
-      </div>
+
+      <button
+              class="filter-btn"
+              data-filter="video-production"
+      >
+        Video Production
+      </button>
+
+      <button
+              class="filter-btn"
+              data-filter="creative-reels"
+      >
+        Creative Reels
+      </button>
+
+      <button
+              class="filter-btn"
+              data-filter="design-photo"
+      >
+        Design & Photography
+      </button>
+
     </div>
+
+
+    <!-- Main Showcase Grid -->
+    <div
+            class="portfolio-grid"
+            id="portfolio-grid"
+    >
+      <!-- Rendered dynamically by js/main.js -->
+
+      <p
+              style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 4rem 0;"
+      >
+        Loading projects...
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==========================================
+     MODAL (PROJECT DETAILS POPUP)
+     ========================================== -->
+<div
+        class="modal"
+        id="project-modal"
+>
+
+  <div class="modal-overlay"></div>
+
+  <div class="modal-container">
+
+    <button
+            class="modal-close-btn"
+            aria-label="Close modal"
+    >
+      <svg viewBox="0 0 24 24">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+
+
+    <div class="modal-media-wrapper">
+      <!-- Rendered dynamically -->
+    </div>
+
+
+    <div class="modal-content">
+
+      <div class="modal-header-row">
+
+        <div class="modal-title-area">
+
+          <div class="modal-category">
+            Video Production
+          </div>
+
+          <h2 class="modal-title">
+            Project Title
+          </h2>
+
+        </div>
+
+
+        <div class="modal-meta-grid">
+
+          <div>
+
+            <div class="modal-meta-label">
+              Client
+            </div>
+
+            <div class="modal-meta-val modal-client-val">
+              Client Name
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="modal-meta-label">
+              Year
+            </div>
+
+            <div class="modal-meta-val modal-year-val">
+              2026
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <p class="modal-body-desc">
+          Detailed project description goes here...
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo-link logo-container" id="footer-logo">
-            <span class="logo-text">The Story Circuit</span>
-          </a>
-          <p class="footer-desc agency-desc">
-            We are a creative media agency crafting high-production video content, social campaign reels, and visual branding.
-          </p>
-        </div>
+</div>
 
-        <div>
-          <h4 class="footer-title">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
-            <li><a href="pricing.html" class="footer-link">Packages & Pricing</a></li>
-            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
-          </ul>
-        </div>
 
-        <div>
-          <h4 class="footer-title">Connect</h4>
-          <ul class="footer-links" style="gap: 1.5rem;">
-            <li>
-              <a href="#" class="footer-social-badge instagram-link" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                <span class="instagram-handle-text">@thestorycircuit</span>
-              </a>
-            </li>
-            <li style="color: var(--text-muted); font-size: 0.95rem;">
-              Email: <a href="mailto:hello@thestorycircuit.com" class="agency-email" style="color: var(--text-main); font-weight: 500;">hello@thestorycircuit.com</a>
-            </li>
-          </ul>
-        </div>
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <a
+                href="index.html"
+                class="logo-link logo-container"
+                id="footer-logo"
+        >
+            <span class="logo-text">
+              The Story Circuit
+            </span>
+        </a>
+
+        <p class="footer-desc agency-desc">
+          We are a creative media agency crafting high-production video content, social campaign reels, and visual branding.
+        </p>
+
       </div>
 
-      <div class="footer-bottom">
-        <div>&copy; 2026 <span class="agency-name">The Story Circuit</span>. All rights reserved.</div>
-        <div style="display: flex; gap: 1.5rem;">
-          <a href="#" style="color: var(--text-dim);">Privacy Policy</a>
-          <a href="#" style="color: var(--text-dim);">Terms of Service</a>
-        </div>
+
+      <div>
+
+        <h4 class="footer-title">
+          Navigation
+        </h4>
+
+        <ul class="footer-links">
+
+          <li>
+            <a
+                    href="index.html"
+                    class="footer-link"
+            >
+              Home
+            </a>
+          </li>
+
+          <li>
+            <a
+                    href="portfolio.html"
+                    class="footer-link"
+            >
+              Portfolio
+            </a>
+          </li>
+
+          <li>
+            <a
+                    href="pricing.html"
+                    class="footer-link"
+            >
+              Packages & Pricing
+            </a>
+          </li>
+
+          <li>
+            <a
+                    href="contact.html"
+                    class="footer-link"
+            >
+              Contact Us
+            </a>
+          </li>
+
+        </ul>
+
       </div>
+
+
+      <div>
+
+        <h4 class="footer-title">
+          Connect
+        </h4>
+
+        <ul
+                class="footer-links"
+                style="gap: 1.5rem;"
+        >
+
+          <li>
+
+            <a
+                    href="#"
+                    class="footer-social-badge instagram-link"
+                    target="_blank"
+            >
+
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849.07-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618-6.98-.059-1.28-.073-1.689-.073-4.948 0-3.259.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+
+              <span class="instagram-handle-text">
+                  @thestorycircuit
+                </span>
+
+            </a>
+
+          </li>
+
+
+          <li
+                  style="color: var(--text-muted); font-size: 0.95rem;"
+          >
+            Email:
+
+            <a
+                    href="mailto:hello@thestorycircuit.com"
+                    class="agency-email"
+                    style="color: var(--text-main); font-weight: 500;"
+            >
+              hello@thestorycircuit.com
+            </a>
+
+          </li>
+
+        </ul>
+
+      </div>
+
     </div>
-  </footer>
 
-  <script src="js/main.js"></script>
+
+    <div class="footer-bottom">
+
+      <div>
+        &copy; 2026
+
+        <span class="agency-name">
+            The Story Circuit
+          </span>.
+
+        All rights reserved.
+      </div>
+
+      <div
+              style="display: flex; gap: 1.5rem;"
+      >
+
+        <a
+                href="#"
+                style="color: var(--text-dim);"
+        >
+          Privacy Policy
+        </a>
+
+        <a
+                href="#"
+                style="color: var(--text-dim);"
+        >
+          Terms of Service
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
+<script src="js/data.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/portfolio.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
